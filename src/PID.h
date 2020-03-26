@@ -1,6 +1,8 @@
 #ifndef PID_H
 #define PID_H
 
+#include <vector>
+
 class PID {
  public:
   /**
@@ -31,6 +33,12 @@ class PID {
    */
   double TotalError();
 
+  /**
+   * Implement the twiddle algorithm
+   * */
+  std::vector<double> Twiddle(std::vector<double> &p, std::vector<double> &ps,
+                              double tol, double cte);
+
  private:
   /**
    * PID Errors
@@ -38,6 +46,7 @@ class PID {
   double p_error;
   double i_error;
   double d_error;
+  double prev_cte;
 
   /**
    * PID Coefficients
@@ -45,6 +54,13 @@ class PID {
   double Kp;
   double Ki;
   double Kd;
+
+  /**
+   * PID Debug parameters
+   * */
+  std::vector<double> vec_cte;
+
+
 };
 
 #endif  // PID_H

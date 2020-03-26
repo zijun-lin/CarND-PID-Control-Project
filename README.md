@@ -1,6 +1,12 @@
 # CarND-Controls-PID
 Self-Driving Car Engineer Nanodegree Program
+- Student describes the effect of the P, I, D component of the PID algorithm in their implementation. Is it what you expected?
+The P(proportional) component has most directly effect on the car's behavior. It causes the steer proportional to the CTE(the distance to the basic line).
+The D(differential) component counteracts the P component's tendency to ring and overshoot the center line. With D parameter, the car will be always close to the reference trajectory without high oscillation.
+The I(integral) component counteracts a bias in the CTE which prevents the PD controller from reaching the center line.
 
+- Student discusses how they chose the final hyperparameters (P, I, D coefficients)
+Hyperparameters were tuned manually at first and make surethe car is able to keep the track without leaving the lane. After the manual tuning, twiddle algorithm was performed.
 ---
 
 ## Dependencies
